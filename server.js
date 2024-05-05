@@ -77,8 +77,25 @@ const server = http.createServer((req, res) => {
       return currentDateTime;
     }
 
+    //0. Homepage
+    //GET /
+    if (req.method==='GET' && req.url==='/'){
+      const htmlPage = fs.readFileSync("./html/index.html", 'utf-8');
+      const resBody = htmlPage;
+
+      res.statusCode=200;
+      res.setHeader ("Content-Type","text/html");
+      res.write(resBody);
+      return res.end();
+    }
+
+    urlArr = req.url.split("");
+    const filteredArr=urlArr.filter((item)=>{return item!=="?"});
+    req.url=filteredArr.join("");
+
     //1. Get all the artists
     //GET /artists
+
     if (req.method==='GET' && req.url==='/artists'){
       res.statusCode=200;
       res.setHeader ("Content-Type","application/json");

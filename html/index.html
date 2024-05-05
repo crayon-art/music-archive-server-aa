@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
+    <title>HomePage</title>
+</head>
+<body>
+    <div class="nav">
+        <h2>Server Enpoints</h2>
+
+        <ol>
+            <li>{
+                "endpoint": "Get all the artists",<br>
+                "request": {<br>
+                  "method": "GET",<br>
+                  "URL": "/artists",<br>
+                  "headers": false,<br>
+                  "body": false<br>
+                },<br><br>
+                "response": {<br>
+                  "headers": {<br>
+                    "Content-Type":"application/json"<br>
+                  },<br>
+                  "statusCode": 200,<br>
+                  "body": [<br>
+                    {<br>
+                        "name": "name",<br>
+                        "artistId": 1<br>
+                    }<br>
+                  ]<br>
+                }<br>
+              },</li>
+            <li>{
+                "endpoint": "Get a specific artist's details based on artistId",
+                "request": {
+                  "method": "GET",
+                  "URL": "/artists/:artistId",
+                  "headers": false,
+                  "body": false
+                },
+                "response": {
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "statusCode": 200,
+                  "body": {
+                            "name": "artistName",
+                            "artistId": 1,
+                            "albums": [
+                              {
+                                  "name": "Stadium Arcadium",
+                                  "albumId": 1,
+                                  "artistId": 1
+                              }
+                            ]
+                          }
+                  }
+              },</li>
+            <li>{
+                "endpoint": "Add an artist",
+                "request": {
+                  "method": "POST",
+                  "URL": "/artists",
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "body": {
+                    "name": "artistName"
+                  }
+                },
+                "response": {
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "statusCode": 201,
+                  "body": {
+                    "name": "name",
+                    "artistId": 1
+                }
+                }
+              },</li>
+            <li>{
+                "endpoint": "Edit a specified artist by artistId",
+                "request": {
+                  "method": "PUT",
+                  "URL": "/artists/:artistId",
+                  "headers":{
+                    "Content-Type":"application/json"
+                  },
+                  "body": {
+                    "name": "name"
+                }
+                },
+                "response": {
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "statusCode": 200,
+                  "body": {
+                    "name": "artistName",
+                    "artistId": 1,
+                    "updatedAt": "2024-05"
+                }
+                }
+              },</li>
+            <li>{
+                "endpoint": "Delete a specified artist by artistId",
+                "request": {
+                  "method": "DELETE",
+                  "URL": "/artists/:artistId",
+                  "headers": false,
+                  "body": false
+                },
+                "response": {
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "statusCode": 200,
+                  "body": {"Message":"Successfully deleted item"}
+                }
+              },</li>
+            <li>{
+                "endpoint": "Get all albums of a specific artist based on artistId",
+                "request": {
+                  "method": "GET",
+                  "URL": "/artists/:artistId/albums",
+                  "headers": false,
+                  "body": false
+                },
+                "response": {
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "statusCode": 200,
+                  "body": [
+                    {
+                        "name": "albumName",
+                        "albumId": 1,
+                        "artistId": 1
+                    }
+                ]
+                }
+              },</li>
+            <li>{
+                "endpoint": "Get a specific album's details based on albumId",
+                "request": {
+                  "method": "GET",
+                  "URL": "/albums/:albumId",
+                  "headers": false,
+                  "body": false
+                },
+                "response": {
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "statusCode": 200,
+                  "body":{
+                    "name": "albumName",
+                    "albumId": 1,
+                    "artistId": 1,
+                    "artist": {
+                        "name": "artistName",
+                        "artistId": 1
+                    },
+                    "songs": [
+                        {
+                            "name": "songName",
+                            "lyrics": "lyrics",
+                            "trackNumber": 1,
+                            "songId": 1,
+                            "createdAt": "2024-05",
+                            "updatedAt": "2024-05",
+                            "albumId": 1
+                        }
+                    ]
+                }
+                }
+              },</li>
+            <li>{
+                "endpoint": "Add an album to a specific artist based on artistId",
+                "request": {
+                  "method": "POST",
+                  "URL": "/artists/:artistId/albums",
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "body": {
+                    "name":"album name"
+                  }
+                },
+                "response": {
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "statusCode": 201,
+                  "body": {
+                    "name": "album",
+                    "albumId": 2,
+                    "artistId": 1
+                  }
+                }
+              },</li>
+            <li>{
+                "endpoint": "Edit a specified album by albumId",
+                "request": {
+                  "method": "PUT",
+                  "URL": "/albums/:albumId",
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "body": {
+                    "name":"album name"
+                  }
+                },
+                "response": {
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "statusCode": 200,
+                  "body": {
+                    "name": "ALBUM",
+                    "albumId": 1,
+                    "artistId": 1,
+                    "updatedAt": "2024-05"
+                  }
+                }
+              },</li>
+            <li>{
+                "endpoint": "Delete a specified album by albumId",
+                "request": {
+                  "method": "DELETE",
+                  "URL": "/albums/:albumId",
+                  "headers": false,
+                  "body": false
+                },
+                "response": {
+                  "headers": {
+                    "Content-Type":"application/json"
+                  },
+                  "statusCode": 200,
+                  "body": {"Message":"Successfully deleted item"}
+                }
+              },</li>
+        </ol>
+
+
+    </div>
+</body>
+</html>

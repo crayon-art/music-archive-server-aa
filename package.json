@@ -1,4 +1,5 @@
 {
-  "name": "test-deploy",
-  "version": "1.0.0"
+  "name": "music-archive-server",
+  "version": "1.0.0",
+  "author":"Shevon Williams <williams.shevon@gmail.com>"
 }

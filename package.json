@@ -1,5 +1,8 @@
 {
   "name": "music-archive-server",
   "version": "1.0.0",
-  "author":"Shevon Williams <williams.shevon@gmail.com>"
+  "author":"Shevon Williams <williams.shevon@gmail.com>",
+  "scripts": {
+      "start": "node server.js"
+    }
 }

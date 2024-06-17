@@ -1,4 +1,5 @@
-Server Enpoints
+Server Endpoints
+
             {
                 "endpoint": "Get all the artists",
                     "request": {
